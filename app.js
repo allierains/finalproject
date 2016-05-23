@@ -6,9 +6,9 @@ var session      = require('express-session');
 var db           = require('./db.js');
 var port         = process.env.PORT || 3000;
 var app          = express();
-var routes       = require('./routes.js')
-var passport     = require('./config/passport.js');
-var LocalStrategy = require('passport-local');
+var routes       = require('./routes.js');
+var passport     = require('passport');
+var passportTwitter = require('passport-twitter');
 
 // Configure view engine to render EJS templates
 app.set('views', __dirname + '/views');
@@ -27,9 +27,15 @@ app.get('/', function(req, res) {
   res.render('home', { user: req.user });
 });
 
-app.get('/auth/twitter', function(req, res){
-  res.render('login')
-});
+app.get('/auth/twitter',
+  passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 app.listen(port, function() {
   console.log('Listening on pork: ', port);
