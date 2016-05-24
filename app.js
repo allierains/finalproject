@@ -11,12 +11,15 @@ var routes       = require('./routes.js');
 var passport     = require('passport');
 var Strategy     = require('passport-twitter').Strategy;
 var api          = express.Router();
+var https        = require('https');
+
 
 
 
 // Configure view engine to render EJS templates
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname + '/public')));
 
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
@@ -45,6 +48,14 @@ app.get('/profile', isLoggedIn, function(req, res) {
   });
 
 
+
+app.get('/profile/results', isLoggedIn, function(req, res){
+  res.render('results.ejs', {
+    user : req.user
+  });
+})
+
+
 app.get('/login/twitter/return',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
@@ -61,7 +72,6 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
-
 
 
 app.get('/login',
