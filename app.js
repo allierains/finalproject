@@ -10,7 +10,7 @@ var app          = express();
 var routes       = require('./routes.js');
 var passport     = require('passport');
 var Strategy     = require('passport-twitter').Strategy;
-var User         = require('./models/user.js')
+
 
 
 // Configure view engine to render EJS templates
@@ -61,12 +61,7 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-var client = user.usernname;
-client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response) {
-  if (!error) {
-    console.log(tweet);
-  }
-});
+
 
 app.get('/login',
   function(req, res){
