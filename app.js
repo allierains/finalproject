@@ -10,6 +10,8 @@ var app          = express();
 var routes       = require('./routes.js');
 var passport     = require('passport');
 var Strategy     = require('passport-twitter').Strategy;
+var User         = require('./models/user.js')
+
 
 // Configure view engine to render EJS templates
 app.set('views', __dirname + '/views');
@@ -34,13 +36,37 @@ app.get('/', function(req, res) {
   res.render('home', { user: req.user });
 });
 
+app.get('/profile', isLoggedIn, function(req, res) {
+  res.render('profile.ejs', {
+      user : req.user // get the user out of session and pass to template
+
+        });
+  });
+
+
 app.get('/login/twitter/return',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/');
+    res.redirect('/profile');
   });
 
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+
+var client = user.usernname;
+client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response) {
+  if (!error) {
+    console.log(tweet);
+  }
+});
 
 app.get('/login',
   function(req, res){
@@ -71,6 +97,6 @@ passport.use(new Strategy({
   });
 
 
-app.listen(port, function() {
+app.listen(port, function(){
   console.log('Listening on pork: ', port);
 });
