@@ -1,8 +1,12 @@
 
+
+
+
+$("#button").click(function() {
+  console.log('twitterHandle' + $('#twitterHandle').text())
    $.ajax({
         method: 'get',
-        url: "https://api.twitter.com/1.1/statuses/user_timeline.json"
-
+        url: '/api/twitter/' + $('#twitterHandle').text()
       })
       .done(function(data){
         console.log(data)
@@ -11,9 +15,9 @@
           arr.push(data[i].text)
         }
       });
-
-
-
-$("#button").click(function() {
-  console.log(data);
 });
+
+// $("#button2").click(function() {
+//   console.log('hi');
+//   console.log('twitterHandle' + $('#twitterHandle').text())
+// });

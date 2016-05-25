@@ -5,26 +5,23 @@
 
 <link rel='stylesheet' href='/stylesheets/style.css'>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/tweets.js"></script>
 </head>
 <body>
         <h1>Profile Page</h1>
         <a href="/logout">Logout</a>
 
-
             <h3>Twitter</h3>
 
             <p>
-                <%= user.username %>
+              <span id="twitterHandle"><%= user.username %></span>
 
-            </a>
 
             <button id="button">Go!</button>
             </p>
 
 
 
-
 </div>
+<script type="text/javascript" src="/js/tweets.js"></script>
 </body>
 </html>
