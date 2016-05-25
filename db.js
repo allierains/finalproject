@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/auth-with-passport', function (err) {
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/auth-with-passport'
+mongoose.connect(mongoURI, function (err) {
   if (err) {
     return console.log('Cannot connect to database', err);
   }
