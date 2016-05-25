@@ -8,15 +8,19 @@ var db           = require('./db.js');
 var port         = process.env.PORT || 3000;
 var app          = express();
 var routes       = require('./routes.js');
+var OAuth2       = require('oauth').OAuth2;
 var passport     = require('passport');
 var Strategy     = require('passport-twitter').Strategy;
 var api          = express.Router();
+var https        = require('https');
+
 
 
 
 // Configure view engine to render EJS templates
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname + '/public')));
 
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
@@ -28,7 +32,7 @@ app.use(session({ secret: 'SECRET', name: 'id', cookie: {secure: false}}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+var oauth2 = new OAuth2(process.env.CONSUMER_KEY, process.env.CONSUMER_SECRET, 'https://api.twitter.com/', null, 'oauth2/token', null);
 
 // Define routes
 
@@ -43,6 +47,43 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
         });
   });
+
+
+
+app.get('/profile/results', isLoggedIn, function(req, res){
+  res.render('results.ejs', {
+    user : req.user
+  });
+})
+
+app.get('/api/twitter/:id', function(req, res){
+  oauth2.getOAuthAccessToken('', {
+    'grant_type': 'client_credentials'
+  }, function(err, access_token){
+    if(err) throw err
+    console.log(access_token); //string that we can use to authenticate request
+    var options = {
+      hostname: 'api.twitter.com',
+      path: '/1.1/statuses/user_timeline.json?screen_name=' + req.params.id + '&count=200',
+      headers: {
+        Authorization: 'Bearer ' + access_token
+      }
+    };
+    https.get(options, function(result){
+      var buffer = '';
+      result.setEncoding('utf8');
+      result.on('data', function(data){
+        buffer += data;
+      });
+      result.on('end', function(){
+        var tweets = JSON.parse(buffer);
+        console.log(tweets);
+        res.json(tweets)
+      });
+    });
+  });
+
+})
 
 
 app.get('/login/twitter/return',
@@ -61,7 +102,6 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
-
 
 
 app.get('/login',

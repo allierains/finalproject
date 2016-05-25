@@ -16,8 +16,10 @@
     "ejs": "^2.4.2",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "https": "^1.0.0",
     "mongoose": "^4.4.19",
     "morgan": "^1.7.0",
+    "oauth": "^0.9.14",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4"
