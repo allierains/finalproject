@@ -40,7 +40,6 @@ $("#button").show(function() {
               }
             }
           }
-        };
         $("#tweetCounter").text(counter)
       });
 

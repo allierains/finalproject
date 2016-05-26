@@ -13,10 +13,12 @@
             <h3>Twitter</h3>
 
             <p>
-              <span id="twitterHandle"><%= user.username %></span>
+              <span id="twitterHandle">@<%= user.username %>
+
+              </span>
 
             <div>
-            <span id="button" class="show">Go!</span>
+            <span id="button" class="show"></span>
             </p>
             </div>
             <ul id="tweetsContainer" class="count"></ul>
@@ -25,6 +27,8 @@
 
             <button id="button2">Count!</button>
             <div id="tweetCounter"></div>
+
+            <a href="/api/twitter/:id">Tweet my result!</a>
 
             </div>
 
