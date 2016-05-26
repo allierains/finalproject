@@ -7,15 +7,12 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
-        <h1>Profile Page</h1>
-        <a href="/logout">Logout</a>
 
-            <h3>Twitter</h3>
+        <h1>How much do you swear?</h1>
+
 
             <p>
-              <span id="twitterHandle">@<%= user.username %>
-
-              </span>
+              <span id="twitterHandle"></span>
 
             <div>
             <span id="button" class="show"></span>
@@ -32,6 +29,10 @@
             <a href="/api/twitter/:id">Tweet my result!</a>
 
             </div>
+
+        <br>
+        <br>
+        <a href="/logout">Logout</a>
 
 
 <script type="text/javascript" src="/js/tweets.js"></script>

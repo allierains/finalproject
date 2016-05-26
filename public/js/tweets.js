@@ -1,8 +1,5 @@
 
-
-
-// click event for tweets
-var tweets;
+var tweets
 
 $("#button").show(function() {
   console.log('twitterHandle' + $('#twitterHandle').text())
@@ -40,7 +37,7 @@ $("#button").show(function() {
               }
             }
           }
-        $("#tweetCounter").text(counter)
+        $("#tweetCounter").text($('#twitterHandle').text() + ' sweared ' + counter + ' times!')
         });
 
 
