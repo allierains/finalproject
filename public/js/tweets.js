@@ -39,10 +39,10 @@ $("#button").show(function() {
               console.log(counter)
               }
             }
-          }
-        };
         $("#tweetCounter").text(counter)
-      });
+          }
+        });
+
 
 
 
