@@ -85,6 +85,20 @@ app.get('/api/twitter/:id', function(req, res){
 
 })
 
+// app.post('/api/twitter/:id', function(req, res){
+//   oauth2.getOAuthAccessToken('', {
+//     'grant_type': 'client_credentials'
+//   }, function(err, access_token){
+//     if(err) throw err
+//     console.log(access_token); //string that we can use to authenticate request
+//     var options = {
+//       hostname: 'api.twitter.com',
+//       path: 'https://api.twitter.com/1.1/statuses/update.json' + req.params.id + '&count=200',
+//       headers: {
+//         Authorization: 'Bearer ' + access_token
+//       }
+//     };
+
 
 app.get('/login/twitter/return',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
