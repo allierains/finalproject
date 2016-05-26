@@ -22,7 +22,7 @@ $("#button").show(function() {
 });
 
       $("#button2").click(function(){
-        var naughtyWords = ['how', 'the', 'a', 'i', 'am']
+        var naughtyWords = ['shit', 'fuck', 'bitch', 'fucking', 'hoe', 'ass', 'asshole', 'slut', 'whore', 'cunt', 'damn', 'motherfucker']
         var arr = []
         var counter = 0
         for (var j= 0; j<tweets.length; j++){
@@ -34,9 +34,10 @@ $("#button").show(function() {
           console.log(currentTweet)
           for (var k = 0; k < currentTweet.length; k++) {
             console.log(currentTweet[k])
-            if(currentTweet[k] == naughtyWords[0] || currentTweet[k] == naughtyWords[1] || currentTweet[k] == naughtyWords[2] ) {
+            if(currentTweet[k] == naughtyWords[0] || currentTweet[k] == naughtyWords[1] || currentTweet[k] == naughtyWords[2] || currentTweet[k] == naughtyWords[3] || currentTweet[k] == naughtyWords[4] || currentTweet[k] == naughtyWords[5] || currentTweet[k] == naughtyWords[6] || currentTweet[k] == naughtyWords[7] || currentTweet[k] == naughtyWords[8] || currentTweet[k] == naughtyWords[9] || currentTweet[k] == naughtyWords[10] || currentTweet[k] == naughtyWords[11]   ) {
               counter++;
               console.log(counter)
+              }
             }
           }
         };
