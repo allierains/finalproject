@@ -7,25 +7,25 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
-        <h1>Profile Page</h1>
-        <a href="/logout">Logout</a>
 
-            <h3>Twitter</h3>
 
-            <p>
-              <span id="twitterHandle"><%= user.username %></span>
+            <h1>
+              Welcome, <span id="twitterHandle">@<%= user.username %></span>
 
             <div>
-            <span id="button" class="show">Go!</span>
-            </p>
+            <span id="button" class="show"></span>
+            </h1>
             </div>
             <ul id="tweetsContainer" class="count"></ul>
 
 
 
-            <button id="button2">Count!</button>
+            <button id="button2">See how many times you swear!</button>
             <div id="tweetCounter"></div>
             <a href="/profile/results">Learn more!</a>
+
+            <a href="/api/twitter/:id" id="post">Share result</a>
+            <a href="/logout">Logout</a>
 
             </div>
 

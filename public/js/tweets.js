@@ -21,6 +21,8 @@ $("#button").show(function() {
       });
 });
 
+
+
       $("#button2").click(function(){
         var naughtyWords = ['shit', 'fuck', 'bitch', 'fucking', 'hoe', 'ass', 'asshole', 'slut', 'whore', 'cunt', 'damn', 'motherfucker']
         var arr = []
@@ -39,7 +41,7 @@ $("#button").show(function() {
               console.log(counter)
               }
             }
-        $("#tweetCounter").text(counter)
+        $("#tweetCounter").text(counter + ' times!')
           }
         });
 
