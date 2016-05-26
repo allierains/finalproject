@@ -1,33 +1,46 @@
 
-// click event for tweets
 
-$("#button").click(function() {
+
+// click event for tweets
+var tweets;
+
+$("#button").show(function() {
   console.log('twitterHandle' + $('#twitterHandle').text())
    $.ajax({
         method: 'get',
         url: '/api/twitter/' + $('#twitterHandle').text()
       })
       .done(function(data){
-        tweets = data
         var arr = [];
         var tweetsContainer = $('#tweetsContainer');
         for (i=0; i<data.length; i++){
+        tweets = data
           arr.push(data[i].text)
-          tweetsContainer.append('<li>' + data[i].text + '</li>');
+          // tweetsContainer.append('<li>' + data[i].text + '</li>');
         }
       });
 });
 
       $("#button2").click(function(){
-        var tweets = tweets[i].text
-        var naughtyWords = ['how', 'the', 'a']
+        var naughtyWords = ['how', 'the', 'a', 'i', 'am']
+        var arr = []
         var counter = 0
-        for(var i = 0; i<tweets.length; i++){
-          var currentTweet = tweets[i].text.split('');
-          for (var k = 0; k < currentTweet.length; k++) {
-            if(naughtyWords.includes(currentTweet[k])) counter++;
-          }
+        for (var j= 0; j<tweets.length; j++){
+          arr.push(tweets[j].text)
         }
+        console.log(arr)
+        for(var i = 0; i<arr.length; i++){
+          var currentTweet = arr[i].split(' ');
+          console.log(currentTweet)
+          for (var k = 0; k < currentTweet.length; k++) {
+            console.log(currentTweet[k])
+            if(currentTweet[k] == naughtyWords[0] || currentTweet[k] == naughtyWords[1] || currentTweet[k] == naughtyWords[2] ) {
+              counter++;
+              console.log(counter)
+            }
+          }
+        };
+        $("#tweetCounter").text(counter)
       });
 
 
