@@ -24,6 +24,9 @@ Technologies used:
 Wireframes and ERDs
 https://moqups.com/allieliu/eAXKT6M2
 
+Heroku
+http://problematic.herokuapp.com
+
 Trello
 https://trello.com/b/7vJQ3OCh/final-project
 
