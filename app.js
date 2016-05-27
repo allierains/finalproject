@@ -121,7 +121,7 @@ app.get('/logout', function(req, res) {
 passport.use(new Strategy({
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
-    callbackURL: 'https://problematic.herokuapp.com/login/twitter/return'
+    callbackURL: process.env.CALLBACK_URL
   },
   function(token, tokenSecret, profile, cb) {
     // In this example, the user's Twitter profile is supplied as the user
