@@ -39,7 +39,7 @@ $("#button").show(function() {
               }
             }
           }
-        $("#tweetCounter").text($('#twitterHandle').text() + ' sweared ' + counter + ' times!')
+        $("#tweetCounter").text($('#twitterHandle').text() + ' swore ' + counter + ' times!')
         });
 
 
