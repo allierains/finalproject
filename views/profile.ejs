@@ -9,14 +9,22 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <p class="navbar-text navbar-right">Signed in as <span id="twitterHandle">@<%= user.username %></span> </p>
+      </div>
+    </nav>
+
+<div class="jumbotron">
             <h1>
-              Welcome, <span id="twitterHandle">@<%= user.username %></span>
+              Welcome, <span id="twitterHandle">@<%= user.username %></span></h1>
 
             <div>
             <span id="button" class="show"></span>
             </h1>
             </div>
             <ul id="tweetsContainer" class="count"></ul>
+</div>
 
 
 

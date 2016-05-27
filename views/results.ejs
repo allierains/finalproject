@@ -4,26 +4,44 @@
 <title>Profile Results</title>
 <link rel='stylesheet' href='/stylesheets/style.css' />
 <style type="text/css"></style>
-<script type="text/javascript" src="../app.js"></script>
-<script type="text/javascript" src="../config/passport.js"></script>
-<script type="text/javascript" src="../models/user.js"></script>
-<script type="text/javascript" src="../db.js"></script>
-<script type="text/javascript" src="../controllers/UserController.js"></script>
-<script type="text/javascript" src="../twitter/js"></script>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 </head>
 <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <p class="navbar-text navbar-right">Signed in as <span id="twitterHandle">@<%= user.username %></span> </p>
+        <a href="/" class="navbar-text navbar-left">Home</a>
+    </div>
+  </nav>
         <h1>Results</h1>
-        <a href="/logout">Logout</a>
 
 
-            <h3>Twitter</h3>
+
 
             <p>
-                <%= user.username %> is problematic
+                <%= user.username %> has a potty mouth!
             </p>
 
+
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.problematic.herokuapp.com" data-text="I have a potty mouth! Check out many times you swore on Twitter at" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <br>
+            <div class="jumbotron">
+            <h3> Rankings! </h3>
+            <p>
+            1-5: Goody-two shoes
+            <br>
+            5-10: Watch it!
+            <br>
+            10+: You potty mouth!
+            </p>
+            </div>
+
+        <a href="/logout">Logout</a>
 
 
 </div>
