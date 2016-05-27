@@ -8,26 +8,24 @@
 </head>
 <body>
 
-        <h1>How much do you swear?</h1>
-
-
-            <p>
-              <span id="twitterHandle"></span>
+            <h1>
+              Welcome, <span id="twitterHandle">@<%= user.username %></span>
 
             <div>
             <span id="button" class="show"></span>
-            </p>
+            </h1>
             </div>
             <ul id="tweetsContainer" class="count"></ul>
 
 
 
-            <button id="button2">Count!</button>
+            <button id="button2">See how many times you swear!</button>
             <div id="tweetCounter"></div>
             <a href="/profile/results">Learn more!</a>
 
-            <a href="/api/twitter/:id">Tweet my result!</a>
 
+            <a href="/api/twitter/:id" id="post">Share result</a>
+            <a href="/logout">Logout</a>
             </div>
 
         <br>

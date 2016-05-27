@@ -47,6 +47,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
   });
 
 
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
 
 app.get('/profile/results', isLoggedIn, function(req, res){
   res.render('results.ejs', {
